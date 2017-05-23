@@ -24,7 +24,7 @@ function hasNoDuplicates(arr){
 
 function hasCertainKey(arr, key){
   return arr.every(function(val){
-    return val[key] !== undefined;
+    return key in val
   })
 }
 

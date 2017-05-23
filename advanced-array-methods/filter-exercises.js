@@ -1,16 +1,28 @@
 // filter
 
-function filterLetters(arr, letter){
-    var lowerCasedLetter = letter.toLowerCase();
+function filterByValue(arr,key){
     return arr.filter(function(val){
-        return val.toLowerCase() === lowerCasedLetter;
-    }).length;
+        return val[key] !== undefined;
+    });
 }
 
-function filterKey(arr,key){
+function find(arr, searchValue){
     return arr.filter(function(val){
-        return val[key];
-    });
+        return val === searchValue
+    })[0];
+}
+
+function findInObj(arr, key, searchValue){
+    return arr.filter(function(val){
+        return val[key] === searchValue;
+    })[0];
+}
+
+function removeVowels(str){
+    var vowels = "aeiou"
+    return str.toLowerCase().split("").filter(function(val){
+        return vowels.indexOf(val) === -1;
+    }).join('')
 }
 
 function doubleOddNumbers(arr){
@@ -19,17 +31,4 @@ function doubleOddNumbers(arr){
     }).map(function(val){
         return val *2;
     })
-}
-
-function findStudent(arr, firstName){
-    return arr.filter(function(val){
-        return val.firstName === firstName;
-    })[0];
-}
-
-function removeVowels(str){
-    var vowels = ["a","e","i","o","u"]
-    return str.split("").filter(function(val){
-        return vowels.indexOf(val) === -1;
-    });
 }

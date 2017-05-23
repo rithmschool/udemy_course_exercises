@@ -10,7 +10,7 @@ function valTimesIndex(arr){
   })
 }
 
-function extractKey(arr,key){
+function extractValue(arr,key){
   return arr.map(function(val){
       return val[key];
   });
