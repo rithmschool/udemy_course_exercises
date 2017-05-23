@@ -4,7 +4,6 @@ function filterLetters(arr, letter){
     var lowerCasedLetter = letter.toLowerCase();
     return arr.filter(function(val){
         return val.toLowerCase() === lowerCasedLetter;
-    // since this value returns an array, we can access the length right away!
     }).length;
 }
 
@@ -15,23 +14,16 @@ function filterKey(arr,key){
 }
 
 function doubleOddNumbers(arr){
-
-    var filtered = arr.filter(function(val){
+    return arr.filter(function(val){
         return val % 2 !== 0;
-    })
-    var mapped = map(function(val){
+    }).map(function(val){
         return val *2;
     })
-
-    return mapped;
 }
 
-
-var students = [{name: "Sam"}, {name: "Greg"}, {name: "Ray"}]
-
-function findStudent(arr, name){
+function findStudent(arr, firstName){
     return arr.filter(function(val){
-        return val.name === name;
+        return val.firstName === firstName;
     })[0];
 }
 

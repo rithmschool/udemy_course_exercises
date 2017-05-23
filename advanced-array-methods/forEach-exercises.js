@@ -1,10 +1,29 @@
 // forEach
 
+function doubleValues(arr){
+    var newArr = [];
+    arr.forEach(function(val){
+        newArr.push(val * 2)
+    })
+    return newArr;
+}
+
+function onlyEvenValues(arr){
+    var newArr = [];
+    arr.forEach(function(val){
+        if(val % 2 === 0){
+            newArr.push(val)
+        }
+    })
+    return newArr;
+}
+
 function showFirstAndLast(arr){
     var newArr = [];
     arr.forEach(function(val){
         newArr.push(val[0] + val[val.length-1])
     });
+    return newArr;
 }
 
 function addKeyAndValue(arr,key,value){
@@ -17,7 +36,7 @@ function addKeyAndValue(arr,key,value){
 function vowelCount(str){
     var splitArr = str.split("");
     var obj = {};
-    var vowels = ["a","e","i","o","u"];
+    var vowels = "aeiou";
 
     splitArr.forEach(function(letter){
         if(vowels.indexOf(letter.toLowerCase()) !== -1){
