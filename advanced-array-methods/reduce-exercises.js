@@ -1,30 +1,13 @@
-function extractKey(arr, key){
+function extractValue(arr, key){
     return arr.reduce(function(acc,next){
         acc.push(next[key]);
         return acc;
     },[]);
 }
 
-function addKeyAndValue(arr, key, value){
-    return arr.reduce(function(acc,next,idx){
-        acc[idx][key] = value;
-        return acc;
-    },arr);
-}
-
-function filterLetters(arr,letter){
-    var lowerCasedLetter = letter.toLowerCase();
-    return arr.reduce(function(acc,next){
-        if(next.toLowerCase() === lowerCasedLetter){
-            acc++;
-        }
-        return acc;
-    },0);
-}
-
-function vowelCount(arr){
+function vowelCount(str){
     var vowels = "aeiou";
-    return arr.split('').reduce(function(acc,next){
+    return str.split('').reduce(function(acc,next){
         if(vowels.indexOf(next.toLowerCase() !== -1)){
             if(acc[next]){
                 acc[next]++;
@@ -34,6 +17,13 @@ function vowelCount(arr){
         }
         return acc;
     }, {});
+}
+
+function addKeyAndValue(arr, key, value){
+    return arr.reduce(function(acc,next,idx){
+        acc[idx][key] = value;
+        return acc;
+    },arr.slice());
 }
 
 function partition(arr, cb){
