@@ -25,19 +25,17 @@ function guessingGame(amount){
     var completed = false;
     return function(guess){
         if(!completed){
-            var option;
             guesses++
             if(guess === answer) {
                 completed = true;
-                option = "You got it!"
+                return "You got it!"
             }
-            if(guess > answer) option = "You're too high!"
-            if(guess < answer) option = "You're too low!"
-            if(guesses === amount && guess !== answer) {
+            else if(guess > answer) return "You're too high!"
+            else if(guess < answer) return "You're too low!"
+            else if(guesses === amount) {
                 completed = true;
                 return "No more guesses the answer was " + answer;
             }
-            return option;
         }
         return "You are all done playing!"
     }

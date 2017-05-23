@@ -11,7 +11,7 @@ Vehicle.prototype.start = function(){
 }
 
 Vehicle.prototype.toString = function(){
-  return "The make, model and year are " + this.make + " "+ this.model  + " " + this.year;
+  return "The make, model and year are " + this.make + " " + this.model  + " " + this.year;
 }
 
 function Car(make,model,year){

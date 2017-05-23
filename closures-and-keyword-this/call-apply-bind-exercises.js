@@ -1,7 +1,5 @@
 // https://github.com/rithmschool/intermediate_javascript_exercises/blob/master/call_apply_bind_exercise/callApplyBindSpec.js
 
-// Write a function called arrayFrom which converts an array-like-object into an array.
-
 function arrayFrom(arrayLikeObject){
     return [].slice.call(arrayLikeObject)
 }
@@ -59,15 +57,17 @@ function bind(fn, thisArg){
     return function(){
         var innerArgs = [].slice.call(arguments)
         var allArgs = outerArgs.concat(innerArgs)
-        return fn.apply(fn, thisArg, allArgs)
+        return fn.apply(thisArg, allArgs)
     }
 }
 
+
+// BONUS!
 function flip(fn, thisArg){
     var outerArgs = [].slice.call(arguments,2)
     return function(){
         var innerArgs = [].slice.call(arguments)
-        var allArgs = outerArgs.concat(innerArgs)
-        return fn.apply(fn, thisArg, allArgs.reverse())
+        var allArgs = outerArgs.concat(innerArgs).slice(0, fn.length)
+        return fn.apply(thisArg, allArgs.reverse())
     }
 }
