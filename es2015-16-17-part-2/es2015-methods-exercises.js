@@ -6,8 +6,12 @@ function copyObject(obj){
   return Object.assign({}, obj)
 }
 
-function checkIfNumber(num){
+function checkIfFinite(num){
   return Number.isFinite(num)
+}
+
+function areAllNumbersFinite(arr){
+  return arr.every(Number.isFinite)
 }
 
 function convertArrayLikeObject(obj){
