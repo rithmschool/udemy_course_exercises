@@ -9,14 +9,14 @@ function getMostFollowers(...usernames){
 
 function starWarsString(id){
   var str = '';
-  $.get(`https://swapi.co/api/people/${id}/`).then(function(data){
+  $.getJSON(`https://swapi.co/api/people/${id}/`).then(function(data){
     str += `${data.name} is featured in `;
     var movies = data.films[0].replace('http','https');
-    return $.get(movies);
+    return $.getJSON(movies);
   }).then(function(res){
     str += `${res.title}, directed by ${res.director} `
     var movies = res.planets[0].replace('http','https');
-    return $.get(movies)
+    return $.getJSON(movies)
   }).then(function(res){
     str += `and it takes place on ${res.name}`;
     return str;

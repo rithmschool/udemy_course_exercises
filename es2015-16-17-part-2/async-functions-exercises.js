@@ -8,13 +8,13 @@ async function getMostFollowers(...usernames){
 
 async function starWarsString(id){
   var str = '';
-  var results = await $.get(`https://swapi.co/api/people/${id}/`)
+  var results = await $.getJSON(`https://swapi.co/api/people/${id}/`)
   str += `${results.name} is featured in `;
   var movies = results.films[0].replace('http','https');
-  var moreResults = await $.get(movies);
+  var moreResults = await $.getJSON(movies);
   str += `${moreResults.title}, directed by ${moreResults.director} `
   var movies = moreResults.planets[0].replace('http','https');
-  var finalResults = await $.get(movies)
+  var finalResults = await $.getJSON(movies)
   str += `and it takes place on ${finalResults.name}`;
   console.log(str);
 }

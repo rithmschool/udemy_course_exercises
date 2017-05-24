@@ -10,8 +10,8 @@ class MessageBoard {
         this.id++
         return this;
     }
-    findMessageById(num){
-      return this.messages.get(num)
+    findMessageById(id){
+      return this.messages.get(id)
     }
     findMessageByValue(val){
       for (let msg of this.messages.values()) {
@@ -26,7 +26,7 @@ class MessageBoard {
         return this.messages.size;
     }
     messagesToArray(){
-        return Array.from(m.messages.values())
+        return Array.from(this.messages.values())
     }
 }
 

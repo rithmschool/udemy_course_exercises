@@ -6,7 +6,8 @@ function tripleAndFilter(arr){
   })
 }
 
-let tripleAndFilter = (arr) => arr.map(val => val * 3).filter(val => val % 5 === 0);
+// 1
+let tripleAndFilter = arr => arr.map(val => val * 3).filter(val => val % 5 === 0);
 
 function doubleOddNumbers(arr){
     return arr.filter(function(val){
@@ -16,7 +17,8 @@ function doubleOddNumbers(arr){
     })
 }
 
-let doubleOddNumbers = (arr) => arr.filter(val => val % 2 !== 0).map(val => val * 2 );
+// 2
+let doubleOddNumbers = arr => arr.filter(val => val % 2 !== 0).map(val => val * 2 );
 
 function mapFilterAndReduce(arr){
   return arr.map(function(val){
@@ -29,19 +31,17 @@ function mapFilterAndReduce(arr){
   }, {})
 }
 
-let mapFilterAndReduce = (arr) => {
-  return arr.map(val => {
-    return val.firstName
-  }).filter(val => {
-    return val.length < 5;
-  }).reduce((acc,next) => {
-    acc[next] = next.length
-    return acc;
-  }, {})
-}
+// 3
+let mapFilterAndReduce = (arr) => arr.map(val => val.firstName).filter(val => val.length < 5)
+  .reduce((acc,next) => {
+      acc[next] = next.length
+      return acc;
+    }, {})
 
+// 4
 let createStudent = (firstName, lastName) => ({firstName:firstName, lastName,lastName})
 
+// 5
 var instructor = {
   firstName: "Colt",
   sayHi: function(){
