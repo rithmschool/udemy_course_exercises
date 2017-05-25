@@ -8,7 +8,7 @@ function extractValue(arr, key){
 function vowelCount(str){
     var vowels = "aeiou";
     return str.split('').reduce(function(acc,next){
-        if(vowels.indexOf(next.toLowerCase() !== -1)){
+        if(vowels.indexOf(next.toLowerCase()) !== -1){
             if(acc[next]){
                 acc[next]++;
             } else {
@@ -23,7 +23,7 @@ function addKeyAndValue(arr, key, value){
     return arr.reduce(function(acc,next,idx){
         acc[idx][key] = value;
         return acc;
-    },arr.slice());
+    },arr);
 }
 
 function partition(arr, cb){

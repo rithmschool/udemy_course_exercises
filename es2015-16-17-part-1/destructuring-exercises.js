@@ -7,9 +7,9 @@ function printFullName({first,last}){
   return `Your full name is ${first} ${last}`
 }
 
-function createStudent({likesJavascript = true, likesES2015 = true} = {}){
+function createStudent({likesJavaScript = true, likesES2015 = true} = {}){
   var start = 'The student';
-  if(likesJavascript && likesES2015){
+  if(likesJavaScript && likesES2015){
     start += ' likes JavaScript and ES2015!'
   } else if(likesJavaScript){
     start += ' likes JavaScript!'

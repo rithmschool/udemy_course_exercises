@@ -22,7 +22,7 @@ function sumEvenArgs(...args){
 
 // rest
 function flip(fn, thisArg, ...outerArgs){
-  return function(...innerArgswi){
+  return function(...innerArgs){
     let allArgs = outerArgs.concat(innerArgs).slice(0, fn.length)
     return fn.apply(thisArg, allArgs.reverse());
   }

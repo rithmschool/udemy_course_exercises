@@ -34,7 +34,7 @@ Person.prototype.addToFamily = function(person){
 Array.prototype.map = function(callback){
   var newArr = [];
   for(var i = 0; i < this.length; i++){
-    newArr.push(callback(arr[i], i, this))
+    newArr.push(callback(this[i], i, this))
   }
   return newArr;
 }
