@@ -1,15 +1,15 @@
 function getMostFollowers(...usernames){
   let baseUrl = "https://api.github.com/users/"
   let urls = usernames.map(v => $.getJSON(baseUrl + v));
-  Promise.all(urls).then(function(data){
+  return Promise.all(urls).then(function(data){
     let max = data.sort((a,b) => a.followers < b.followers);
-    console.log(`${max[0].name} has the most followers with ${max[0].followers}`)
+    return `${max[0].name} has the most followers with ${max[0].followers}`
   })
 }
 
 function starWarsString(id){
   var str = '';
-  $.getJSON(`https://swapi.co/api/people/${id}/`).then(function(data){
+  return $.getJSON(`https://swapi.co/api/people/${id}/`).then(function(data){
     str += `${data.name} is featured in `;
     var movies = data.films[0].replace('http','https');
     return $.getJSON(movies);
@@ -21,19 +21,18 @@ function starWarsString(id){
     str += `and it takes place on ${res.name}`;
     return str;
   }).then(function(finalString){
-    console.log(finalString);
+    return finalString
   })
 }
 
-function getTracksForRandomAlbum(artist){
+function getTracksForFirstAlbum(artist){
   return $.getJSON(`https://api.spotify.com/v1/search?q=${artist}&type=album`)
   .then(function(data){
-    var randomAlbumIdx = Math.floor(Math.random() * data.albums.items.length)
-    var randomAlbum = data.albums.items[randomAlbumIdx];
-    console.log(`Getting tracks for ${randomAlbum.name}`)
-    return $.getJSON(`https://api.spotify.com/v1/albums/${randomAlbum.id}`)
+    var firstAlbum = data.albums.items[0];
+    console.log(`Getting tracks for ${firstAlbum.name}`)
+    return $.getJSON(`https://api.spotify.com/v1/albums/${firstAlbum.id}`)
   }).then(function(data){
     var trackNames = data.tracks.items.map(v => v.name);
-    console.log(trackNames)
+    return trackNames
   })
 }

@@ -8,20 +8,20 @@ class Vehicle {
     return "VROOM!"
   }
   toString(){
-    return "The make, model and year are " + this.make + " "+ this.model  + " " + this.year;
+    return `The make, model, and year are ${this.make} ${this.model} ${this.year}`;
   }
 }
 
 class Car extends Vehicle {
   constructor(make,model,year){
-    super(arguments)
+    super(...arguments)
     this.numWheels = 4;
   }
 }
 
 class Motorcycle extends Vehicle {
   constructor(make,model,year){
-    super(arguments)
+    super(...arguments)
     this.numWheels = 2;
   }
 }
