@@ -1,9 +1,9 @@
 function getMostFollowers(...usernames){
   let baseUrl = "https://api.github.com/users/"
-  let urls = usernames.map(v => $.getJSON(baseUrl + v));
+  let urls = usernames.map(username => $.getJSON(baseUrl + username));
   return Promise.all(urls).then(function(data){
-    let max = data.sort((a,b) => a.followers < b.followers);
-    return `${max[0].name} has the most followers with ${max[0].followers}`
+    let max = data.sort((a,b) => a.followers < b.followers)[0];
+    return `${max.name} has the most followers with ${max.followers}`
   })
 }
 
@@ -25,14 +25,14 @@ function starWarsString(id){
   })
 }
 
-function getTracksForFirstAlbum(artist){
-  return $.getJSON(`https://api.spotify.com/v1/search?q=${artist}&type=album`)
-  .then(function(data){
-    var firstAlbum = data.albums.items[0];
-    console.log(`Getting tracks for ${firstAlbum.name}`)
-    return $.getJSON(`https://api.spotify.com/v1/albums/${firstAlbum.id}`)
-  }).then(function(data){
-    var trackNames = data.tracks.items.map(v => v.name);
-    return trackNames
-  })
-}
+// function getTracksForFirstAlbum(artist){
+//   return $.getJSON(`https://api.spotify.com/v1/search?q=${artist}&type=album`)
+//   .then(function(data){
+//     var firstAlbum = data.albums.items[0];
+//     console.log(`Getting tracks for ${firstAlbum.name}`)
+//     return $.getJSON(`https://api.spotify.com/v1/albums/${firstAlbum.id}`)
+//   }).then(function(data){
+//     var trackNames = data.tracks.items.map(v => v.name);
+//     return trackNames
+//   })
+// }
