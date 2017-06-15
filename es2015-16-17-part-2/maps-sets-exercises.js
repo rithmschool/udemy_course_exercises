@@ -35,6 +35,10 @@ function uniqueValues(arr){
   return new Set(arr).size
 }
 
+function hasDuplicates(arr){
+  return new Set(arr).size !== arr.length
+}
+
 function countPairs(arr, num){
     var cache = new Set(arr);
     var count = 0;

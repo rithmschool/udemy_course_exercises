@@ -24,15 +24,3 @@ function starWarsString(id){
     return finalString
   })
 }
-
-// function getTracksForFirstAlbum(artist){
-//   return $.getJSON(`https://api.spotify.com/v1/search?q=${artist}&type=album`)
-//   .then(function(data){
-//     var firstAlbum = data.albums.items[0];
-//     console.log(`Getting tracks for ${firstAlbum.name}`)
-//     return $.getJSON(`https://api.spotify.com/v1/albums/${firstAlbum.id}`)
-//   }).then(function(data){
-//     var trackNames = data.tracks.items.map(v => v.name);
-//     return trackNames
-//   })
-// }

@@ -296,6 +296,16 @@ describe("#uniqueValues", function(){
   });
 });
 
+describe("#hasDuplicates", function(){
+  it("returns true if there are duplicate values in the array", function(){
+    expect(hasDuplicates([1,1,2,2,2,3,3,3,3,4,4,4,5,5,6])).toEqual(true)
+  });
+  it("returns false if there are no duplicates", function(){
+    expect(hasDuplicates([1,2,3,4,5,6])).toEqual(false)
+    expect(hasDuplicates([])).toEqual(false)
+  });
+});
+
 describe("#countPairs", function(){
   it("returns the number of pairs that sum to the second_parameter", function(){
     expect(countPairs([8,2,6,4,10,0],10)).toBe(3);
@@ -383,15 +393,6 @@ describe("#displayEvenArguments", function(){
 //   });
 // });
 
-// describe("#getTracksForFirstAlbum", function(){
-//   it("returns a string with the most followers", function(done){
-//     getTracksForFirstAlbum('the beatles').then(function(result){
-//       expect(result[0]).toEqual('Back In The U.S.S.R. - Remastered')
-//       expect(result[1]).toEqual('Dear Prudence - Remastered')
-//       done();
-//     })
-//   });
-// });
 
 // Async Spec
 
@@ -417,15 +418,6 @@ describe("#displayEvenArguments", function(){
 //   });
 // });
 
-// describe("#getTracksForFirstAlbum", function(){
-//   it("returns a string with the most followers", function(done){
-//     getTracksForFirstAlbum('the beatles').then(function(result){
-//       expect(result[0]).toEqual('Back In The U.S.S.R. - Remastered')
-//       expect(result[1]).toEqual('Dear Prudence - Remastered')
-//       done();
-//     })
-//   });
-// });
 
 
 

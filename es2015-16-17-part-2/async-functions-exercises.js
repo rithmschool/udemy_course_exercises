@@ -18,12 +18,3 @@ async function starWarsString(id){
   str += `and it takes place on ${finalResults.name}`;
   return str;
 }
-
-// async function getTracksForFirstAlbum(artist){
-//   let data = await $.getJSON(`https://api.spotify.com/v1/search?q=${artist}&type=album`)
-//   var firstAlbum = data.albums.items[0];
-//   console.log(`Getting tracks for ${firstAlbum.name}`)
-//   var albumData = await $.getJSON(`https://api.spotify.com/v1/albums/${firstAlbum.id}`)
-//   var trackNames = albumData.tracks.items.map(v => v.name);
-//   return trackNames;
-// }
