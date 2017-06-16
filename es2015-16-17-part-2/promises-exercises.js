@@ -11,12 +11,12 @@ function starWarsString(id){
   var str = '';
   return $.getJSON(`https://swapi.co/api/people/${id}/`).then(function(data){
     str += `${data.name} is featured in `;
-    var movies = data.films[0].replace('http','https');
-    return $.getJSON(movies);
+    var filmData = data.films[0].replace('http','https');
+    return $.getJSON(filmData);
   }).then(function(res){
     str += `${res.title}, directed by ${res.director} `
-    var movies = res.planets[0].replace('http','https');
-    return $.getJSON(movies)
+    var planetData = res.planets[0].replace('http','https');
+    return $.getJSON(planetData)
   }).then(function(res){
     str += `and it takes place on ${res.name}`;
     return str;
