@@ -21,7 +21,7 @@ describe("#guessingGame", function(){
   it("stops you from guessing once you have gotten the answer", function(){
     var g = guessingGame(10)
     g(0), g(1), g(2), g(3), g(4), g(5), g(6), g(7), g(8), g(9), g(10)
-    expect(g(10)).toEqual("You are all done playing!")
+    expect(g(10)).toEqual("All done playing!")
   });
 });
 

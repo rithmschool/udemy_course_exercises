@@ -30,14 +30,14 @@ function guessingGame(amount){
                 completed = true;
                 return "You got it!"
             }
-            else if(guess > answer) return "You're too high!"
-            else if(guess < answer) return "You're too low!"
+            else if(guess > answer) return "Your guess is too high!"
+            else if(guess < answer) return "Your guess is too low!"
             else if(guesses === amount) {
                 completed = true;
                 return "No more guesses the answer was " + answer;
             }
         }
-        return "You are all done playing!"
+        return "All done playing!"
     }
 }
 
