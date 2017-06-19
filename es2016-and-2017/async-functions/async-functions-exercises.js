@@ -3,7 +3,7 @@ async function getMostFollowers(...usernames){
   let urls = usernames.map(v => $.getJSON(baseUrl + v));
   let results = await Promise.all(urls);
   let max = results.sort((a,b) => a.followers < b.followers)[0];
-  return `${max.name} has the most followers with ${max.followers}`;
+  return `${max.name} has the most followers`;
 }
 
 async function starWarsString(id){
@@ -13,8 +13,8 @@ async function starWarsString(id){
   let movies = results.films[0].replace('http','https');
   let moreResults = await $.getJSON(movies);
   str += `${moreResults.title}, directed by ${moreResults.director} `
-  let movies = moreResults.planets[0].replace('http','https');
-  let finalResults = await $.getJSON(movies)
+  let planetData = moreResults.planets[0].replace('http','https');
+  let finalResults = await $.getJSON(planetData)
   str += `and it takes place on ${finalResults.name}`;
   return str;
 }

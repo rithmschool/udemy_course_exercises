@@ -17,7 +17,7 @@ function joinArrays(...args){
 
 // rest
 function sumEvenArgs(...args){
-  return args.reduce((acc, next) => next % 2 === 0 ? acc+=next: acc,0)
+  return args.reduce((acc, next) => next % 2 === 0 ? acc += next : acc, 0)
 }
 
 // rest

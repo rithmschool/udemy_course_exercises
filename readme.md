@@ -3,7 +3,39 @@
 ### Advanced Array Methods
 
 - [forEach](./advanced-array-methods/forEach)
-- [map](./advanced-array-methods/map)
-- [filter](./advanced-array-methods/filter)
-- [some and every](./advanced-array-methods/some-every)
-- [reduce](./advanced-array-methods/reduce)
+- [Map](./advanced-array-methods/map)
+- [Filter](./advanced-array-methods/filter)
+- [Some and Every](./advanced-array-methods/some-every)
+- [Reduce](./advanced-array-methods/reduce)
+
+### Closures and the Keyword `this`
+
+- [Closures](./closures-and-keyword-this/closures)
+- [Call, Apply, and Bind](./closures-and-keyword-this/map)
+
+### Object Oriented Programming
+
+- [Constructors](./object-oriented-programming/constructors)
+- [Prototypes](./object-oriented-programming/prototypes)
+- [Inheritance](./object-oriented-programming/inheritance)
+
+### ES2015 Part I 
+
+- [Arrow Functions](./es2015-16-17-part-1/arrow-functions)
+- [Rest and Spread](./es2015-16-17-part-1/rest-spread)
+- [Destructuring](./es2015-16-17-part-1/destructuring)
+
+### ES2015 Part II 
+
+- [Class Keyword](./es2015-16-17-part-2/class-keyword)
+- [ES2015 Inheritance](./es2015-16-17-part-2/es2015-inheritance)
+- [Maps and Sets](./es2015-16-17-part-2/maps-sets)
+- [Promises](./es2015-16-17-part-2/promises)
+- [ES2015 Methods](./es2015-16-17-part-2/es2015-methods)
+
+### ES2016 + ES2017
+
+- [Async Functions](./es2016-and-17-part-2/async-functions)
+
+
+
