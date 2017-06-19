@@ -11,7 +11,7 @@
 ### Closures and the Keyword `this`
 
 - [Closures](./closures-and-keyword-this/closures)
-- [Call, Apply, and Bind](./closures-and-keyword-this/map)
+- [Call, Apply, and Bind](./closures-and-keyword-this)
 
 ### Object Oriented Programming
 
