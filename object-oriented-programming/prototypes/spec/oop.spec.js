@@ -21,7 +21,7 @@ describe("#fullName", function(){
   });
 });
 
-describe("family", function(){;
+describe("family", function(){
   it("is initialized as an empty array on the Person object", function(){
     var p1 = new Person()
     var p2 = new Person()

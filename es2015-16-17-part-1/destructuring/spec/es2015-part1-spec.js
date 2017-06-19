@@ -1,7 +1,7 @@
 describe("#displayStudentInfo", function(){
   it("returns a string with the first value and last value of an object", function(){
     var obj = {first: 'Elie', last:'Schoppik'}
-    expect(printFullName(obj)).toEqual('Your full name is Elie Schoppik')
+    expect(displayStudentInfo(obj)).toEqual('Your full name is Elie Schoppik')
   });
 });
 
