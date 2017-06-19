@@ -7,8 +7,8 @@ function extractValue(arr, key){
 
 function vowelCount(str){
     var vowels = "aeiou";
-    return str.split('').reduce(function(acc,next){
-        if(vowels.indexOf(next.toLowerCase()) !== -1){
+    return str.toLowerCase().split('').reduce(function(acc,next){
+        if(vowels.indexOf(next) !== -1){
             if(acc[next]){
                 acc[next]++;
             } else {
@@ -26,9 +26,9 @@ function addKeyAndValue(arr, key, value){
     },arr);
 }
 
-function partition(arr, cb){
+function partition(arr, callback){
     return arr.reduce(function(acc,next){
-        if(cb(next)){
+        if(callback(next)){
             acc[0].push(next);
         } else {
             acc[1].push(next);
