@@ -2,22 +2,12 @@
 // Object.assign
 // Number.isFinite
 
-function copyObject(obj){
-  return Object.assign({}, obj)
-}
+function copyObject(obj) {}
 
-function checkIfFinite(num){
-  return Number.isFinite(num)
-}
+function checkIfFinite(num) {}
 
-function areAllNumbersFinite(arr){
-  return arr.every(Number.isFinite)
-}
+function areAllNumbersFinite(arr) {}
 
-function convertArrayLikeObject(obj){
-  return Array.from(obj)
-}
+function convertArrayLikeObject(obj) {}
 
-function displayEvenArguments(){
-  return Array.from(arguments).filter(val => val % 2 === 0);
-}
+function displayEvenArguments() {}
