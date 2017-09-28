@@ -1,5 +1,9 @@
 ## The Web Developer Part II Exercises
 
+The following exercises are for the [Advanced Web Developer Bootcamp](https://www.udemy.com/the-advanced-web-developer-bootcamp/?couponCode=LAUNCH-CODE) course on Udemy.
+
+If you would like to see the solutions, be sure to check out the [solutions branch](https://github.com/rithmschool/udemy_course_exercises/tree/solutions).
+
 ### Advanced Array Methods
 
 - [forEach](./advanced-array-methods/forEach)
