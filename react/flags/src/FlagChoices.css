@@ -1,0 +1,7 @@
+.flag-form {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: space-around;
+  font-size: 1.3em;
+}

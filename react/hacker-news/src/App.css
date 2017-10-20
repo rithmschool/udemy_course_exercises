@@ -1,0 +1,33 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App ol li {
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+.todo-input {
+  padding: 2px;
+  min-width: 250px;
+  min-height: 25px;
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+.save-button {
+  font-size: 1.2em;
+}
+
+.todo-content {
+  width: 50%;
+}
+
+@media (max-width: 700px) {
+  .todo-content {
+    width: 95%;
+  }
+}

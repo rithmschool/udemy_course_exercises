@@ -1,0 +1,10 @@
+.flag-answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+}
+
+.flag-answer button {
+  margin-left: 25px;
+}
