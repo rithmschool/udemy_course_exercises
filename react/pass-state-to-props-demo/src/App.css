@@ -1,0 +1,15 @@
+.App {
+  padding: 20px;
+  text-align: center;
+}
+
+.App ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.App li {
+  list-style: none;
+}
+

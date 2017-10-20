@@ -1,0 +1,29 @@
+.flag-app {
+  text-align: center;
+}
+
+.title-header {
+  display: flex;
+  height: 20vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: "#6b93d6";
+}
+
+.title-text {
+  font-size: 3.5em;
+  color: #e9eff9;
+  text-shadow: 3px 3px 4px black;
+}
+
+@media (max-width: 450px) {
+  .title-header {
+    height: 14vh;
+  }
+
+  .title-text {
+    font-size: 2.1em;
+  }
+}
