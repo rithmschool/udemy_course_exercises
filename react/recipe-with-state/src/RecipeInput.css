@@ -1,0 +1,55 @@
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 7px solid #2c3e50;
+}
+
+.recipe-form input[type=text] {
+    padding: 5px 8px;
+    box-sizing: border-box;
+}
+
+.recipe-form-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.recipe-form-line input {
+  margin-left: 15px;
+}
+
+.buttons {
+  color: white;
+  background-color: #2c3e50;
+  border-radius: 6px;
+  padding: 0 10px 1px 10px;
+  margin: 8px 0;
+  align-self: flex-end;
+  font-size: 1.1em;
+}
+
+.close-button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 0.9em;
+  color: #777;
+  text-shadow: 0 1px 0 #fff;
+  align-self: flex-end;
+}
+
+.recipe-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
