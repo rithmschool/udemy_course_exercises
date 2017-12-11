@@ -4,7 +4,14 @@ specialMultiply(3, 4); // 12
 specialMultiply(3)(4); // 12
 specialMultiply(3); // returns a function
 
-function specialMultiply(a, b) {}
+function specialMultiply(a, b) {
+   if (arguments.length === 1) {
+     return function (b) {
+       return a * b;
+     }
+   }
+   return a * b;
+}
 
 // Write a function called guessingGame which takes in one parameter amount. The function should return another function that takes in a parameter called guess. In the outer function, you should create a variable called answer which is the result of a random number between 0 and 10 as well as a variable called guesses which should be set to 0.
 
@@ -12,7 +19,23 @@ function specialMultiply(a, b) {}
 
 // You will have to make use of closure to solve this problem.
 
-function guessingGame(amount) {}
+function guessingGame(amount) {
+  var answer = Math.floor(Math.random() * 11);
+  var guesses = 0;
+
+  return function inner(amount) {
+    guesses++
+    if (answer === guess) {
+      return "You got it!"
+    } else if (guesses === amount) {
+      return "No more guesses the answer was " + answer;
+    } else if (guess > answer) {
+      return "You're too high!"
+    } else if (guess < answer) {
+      return "You're to low!"
+    }
+  }
+}
 
 var game = guessingGame(5);
 game(1); // "You're too low!"
