@@ -34,12 +34,12 @@ function addKeyAndValue(arr,key,value){
 }
 
 function vowelCount(str){
-    var splitArr = str.split("");
+    var splitArr = str.toLowerCase().split("");
     var obj = {};
     var vowels = "aeiou";
 
     splitArr.forEach(function(letter){
-        if(vowels.indexOf(letter.toLowerCase()) !== -1){
+        if(vowels.indexOf(letter) !== -1){
             if(obj[letter]){
                 obj[letter]++;
             } else{
