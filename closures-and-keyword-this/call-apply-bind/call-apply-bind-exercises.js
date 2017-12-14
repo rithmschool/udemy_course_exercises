@@ -1,8 +1,19 @@
 // https://github.com/rithmschool/intermediate_javascript_exercises/blob/master/call_apply_bind_exercise/callApplyBindSpec.js
 
-function arrayFrom(arrayLikeObject) {}
+function arrayFrom(arrayLikeObject){
+    return [].splice.call(arrayLikeObject)
+}
 
-function sumEvenArguments() {}
+
+function sumEvenArguments(){
+    var sum = 0
+    for(var i=0; i<arguments.length; i++){
+        if(arguments[i] % 2===0){
+            sum += arguments[i]
+        }
+    }
+    return sum
+}
 
 // Write a function called sumEvenArguments which takes all of the arguments passed to a function and returns the sum of the even ones.
 
@@ -22,11 +33,33 @@ function add(a, b) {
     return a + b;
 }
 
-function invokeMax(fn, num) {}
+function invokeMax(fn, num){
+    var counter = 0
+    return function(a,b){
+        counter += 1
+        if(counter > num){
+            return "Maxed Out!"
+        }
+        return fn(a,b)
+    }
+}
 
-function once(fn, thisArg) {}
+function once(fn, thisArg){
+    var notInvoked = true
+    return function(){
+        if(notInvoked){
+            notInvoked = false
+            return fn.apply(thisArg, arguments)
+        } 
+    }
+}
 
-function bind(fn, thisArg) {}
+function flip(fn, thisArg, ...outerArgs){
+    return function(...innerArgs){
+        var combined = outerArgs.concat(innerArgs).slice(0, fn.length)
+        return fn.apply(thisArg, combined.reverse())
+    }
+}
 
 // BONUS!
 function flip(fn, thisArg) {}
