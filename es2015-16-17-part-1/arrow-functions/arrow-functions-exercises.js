@@ -39,7 +39,7 @@ let mapFilterAndReduce = (arr) => arr.map(val => val.firstName).filter(val => va
     }, {})
 
 // 4
-let createStudentObj = (firstName, lastName) => ({firstName:firstName, lastName,lastName})
+let createStudentObj = (firstName, lastName) => ({firstName:firstName, lastName:lastName});
 
 // var instructor = {
 //   firstName: "Colt",
