@@ -219,7 +219,7 @@ Lyft ennui stumptown kinfolk, 8-bit put a bird on it lo-fi austin post-ironic po
 }
 
 function profileImageUrls() {
-  urls = [];
+  let urls = [];
   for (let i = 0; i < 100; i++) {
     if (i < 10) {
       urls.push(`https://randomuser.me/api/portraits/lego/${i}.jpg`);
