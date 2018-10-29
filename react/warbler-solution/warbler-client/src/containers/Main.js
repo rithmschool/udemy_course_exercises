@@ -10,14 +10,13 @@ import Homepage from '../components/Homepage';
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.handleNewMessage = this.handleNewMessage.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.loadMessages();
   }
 
-  handleNewMessage(text) {
+  handleNewMessage = (text) => {
     const {newMessage, history} = this.props;
     newMessage(text).then(() => {
       history.push('/');
