@@ -1,5 +1,5 @@
 function arrayFrom(arrayLikeObject){
-    return [].slice.call(arrayLikeObject)
+    return [].slice.call(arrayLikeObject);
 }
 
 function sumEvenArguments(){
