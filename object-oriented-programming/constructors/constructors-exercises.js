@@ -19,7 +19,7 @@ function Person(firstName, lastName, favoriteColor, favoriteNumber){
   }
 }
 
-// refactor
+// Refactor the Child function to remove all the duplication from the Parent function
 
 function Parent(firstName, lastName, favoriteColor, favoriteFood){
     this.firstName = firstName;
@@ -33,4 +33,17 @@ function Child(firstName, lastName, favoriteColor, favoriteFood){
     this.lastName = lastName;
     this.favoriteColor = favoriteColor;
     this.favoriteFood = favoriteFood;
+}
+
+// Solution
+
+function Parent(firstName, lastName, favoriteColor, favoriteFood){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.favoriteColor = favoriteColor;
+    this.favoriteFood = favoriteFood;
+}
+
+function Child(firstName, lastName, favoriteColor, favoriteFood){
+    Parent.apply(this, arguments);
 }
