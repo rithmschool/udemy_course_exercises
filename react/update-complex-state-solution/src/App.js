@@ -30,7 +30,7 @@ class App extends Component {
       
       const hobbyIndex = Math.floor(
         Math.random() *
-        this.state.instructors[randInst].length
+        this.state.instructors[randInst].hobbies.length
       );
       
       const instructors = this.state.instructors.map((inst, i) => {
