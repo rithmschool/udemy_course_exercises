@@ -21,12 +21,29 @@ class App extends Component {
         }
       ]
     };
+
+    setTimeout(() => {
+
+    function removeHobbies(instructorsObj) { 
+      let randomIndex = Math.floor(Math.random()*instructorsObj.length);
+      let y = instructorsObj.map(x => x);
+      console.log(y)
+      console.log(y[randomIndex].hobbies)
+      delete y[randomIndex].hobbies
+      return y
+    }
+
+      this.setState(
+        {...removeHobbies(this.state.instructors)}
+        
+        );
+    }, 5000);
   }
   render() {
     const instructors = this.state.instructors.map((instructor, index) => (
       <li key={index}>
         <h3>{instructor.name}</h3>
-        <h4>Hobbies: {instructor.hobbies.join(", ")}</h4>
+        <h4>Hobbies: {instructor.hobbies}</h4>
       </li>
     ));
     return (
