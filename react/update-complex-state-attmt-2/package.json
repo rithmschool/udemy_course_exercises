@@ -1,12 +1,12 @@
 {
-  "name": "random-boxes-starter",
+  "name": "update-complex-state",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "create-react-app": "^3.4.1",
-    "prop-types": "^15.5.10",
-    "react": "^16.0.0-rc.3",
-    "react-dom": "^16.0.0-rc.3",
+    "prop-types": "^15.7.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-scripts": "1.0.13"
   },
   "scripts": {
