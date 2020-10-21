@@ -27,6 +27,8 @@ class App extends Component {
     this.state = { 
       cardsClicked: 0,
       cardClassHidden: "card card-hidden",
+      cardClassShown: "card",
+      card0: true,
       card1: true,
       card2: true,
       card3: true,
@@ -39,8 +41,7 @@ class App extends Component {
       card10: true,
       card11: true,
       card12: true,
-      card13: true,
-      card14: true
+      card13: true
     }
     this.clickCounter = this.clickCounter.bind(this);
   }
@@ -59,14 +60,26 @@ class App extends Component {
     const clickCounter = this.clickCounter;
     let CardsArr = [];
     for (let i = 0; i < NUM_CARDS; i++) {
-      CardsArr.push(
-        <Card 
-          cardClass={this.state.cardClassHidden}
-          key={i} 
-          cardColor={this.props.colors[i]} 
-          numberClicks={clickCounter}
-        />
-      )
+      const card = `card${i}`;
+      if (this.state[card]) {
+        CardsArr.push(
+          <Card 
+            cardClass={this.state.cardClassHidden}
+            key={i} 
+            cardColor={this.props.colors[i]} 
+            numberClicks={clickCounter}
+          />
+        )
+      } else {
+        CardsArr.push(
+          <Card 
+            cardClass={this.state.cardClassShown}
+            key={i} 
+            cardColor={this.props.colors[i]} 
+            numberClicks={clickCounter}
+          />
+        )
+      }
     }
     return(CardsArr);
   }
