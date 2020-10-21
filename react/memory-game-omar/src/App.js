@@ -28,9 +28,21 @@ class App extends Component {
       cardsClicked: 0,
       cardClass: "card card-hidden"
     }
+    this.clickCounter = this.clickCounter.bind(this);
+  }
+  clickCounter() {
+    if (this.state.cardsClicked === 2) {
+      this.setState({cardsClicked: 1},
+      () => {console.log(this.state.cardsClicked)});  
+    } else if (this.state.cardsClicked < 2) {
+      this.setState({
+        cardsClicked: this.state.cardsClicked + 1
+      }, () => {console.log(this.state.cardsClicked)})
+    }
   }
   spawnCards () {
     const NUM_CARDS = 14;
+    const clickCounter = this.clickCounter;
     let CardsArr = [];
     for (let i = 0; i < NUM_CARDS; i++) {
       CardsArr.push(
@@ -38,16 +50,7 @@ class App extends Component {
           cardClass={this.state.cardClass}
           key={i} 
           cardColor={this.props.colors[i]} 
-          numberClicks={() => {
-            if (this.state.cardsClicked === 2) {
-              this.setState({cardsClicked: 1},
-              () => {console.log(this.state.cardsClicked)});  
-            } else if (this.state.cardsClicked < 2) {
-              this.setState({
-                cardsClicked: this.state.cardsClicked + 1
-              }, () => {console.log(this.state.cardsClicked)})
-            };
-          }}
+          numberClicks={clickCounter}
         />
       )
     }
