@@ -16,7 +16,6 @@ class Card extends Component {
     };
     this.handleToggle = this.handleToggle.bind(this);
     this.boolClicked = this.boolClicked.bind(this);
-    this.checkTotalClicks  = this.checkTotalClicks.bind(this);
   }
   handleToggle () {
     this.setState({isActive: !this.state.isActive});
@@ -28,13 +27,11 @@ class Card extends Component {
       this.setState({isClicked: false})   
     }
   }
-  checkTotalClicks() {};
   render() {
     const isActive = this.state.isActive;
     const handleToggle = this.handleToggle;
     const numberClicks = this.props.numberClicks;
     const boolClicked = this.boolClicked;
-    const checkTotalClicks = this.props.checkTotalClicks;
     return(
       <div 
       //create a function in className to be called on parent
@@ -52,8 +49,6 @@ class Card extends Component {
 
         onClick={() => {
           console.log(this.state.totalClicks);
-          //STOP HERE: Trying to use function checkTotalClicks, called in parent, to update state of child, and to use to set  className with ternary operator.
-          checkTotalClicks();
           if (this.state.isClicked === false) {
             boolClicked();
             handleToggle();

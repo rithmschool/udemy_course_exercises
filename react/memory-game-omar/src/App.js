@@ -48,12 +48,6 @@ class App extends Component {
           changeColor={() => {
             this.setState({});
           }}
-          checkTotalClicks={() => {
-            console.log('checking');
-            if (this.state.cardsClicked  === 2) {
-              this.setState({totalClicks: 2}, () => { console.log(this.state)})
-            }
-          }}
           numberClicks={() => {
             if (this.state.cardsClicked === 2) {
               this.setState({cardsClicked: 1},
