@@ -58,10 +58,10 @@ class App extends Component {
   resetCards() {
     console.log(this.state.cardsClicked);
     if (this.state.cardsClicked === 2) {
-      console.log('for')
       for (let i=0; i<this.props.colors.length; i++) {
         const card = `card${i}`;
-        this.setState({[card]:true});
+        console.log(card);
+        this.setState({[card]: true});
       }
     }
   }
@@ -80,8 +80,16 @@ class App extends Component {
             cardColor={this.props.colors[i]} 
             numberClicks={clickCounter}
             changeBool={() => {
-              resetCards();
-              this.setState({[card]: false})
+              this.setState({[card]: false});
+            }}
+            resetCards={()=> {
+              console.log(this.state.cardsClicked);
+              if (this.state.cardsClicked === 2) {
+                for (let i=0; i<this.props.colors.length; i++) {
+                  const card = `card${i}`;
+                  this.setState({[card]: true}, ()=>{console.log(this.state)});
+                }
+              }
             }}
           />
         )

@@ -5,7 +5,8 @@ class Card extends Component {
   static defaultProps ={
     cardColor: 'grey',
     numberClicks(){},
-    changeBool(){}
+    changeBool(){},
+    resetCards(){}
   }
   constructor(props){
     super(props);
@@ -33,10 +34,11 @@ class Card extends Component {
     const numberClicks = this.props.numberClicks;
     const boolClicked = this.boolClicked;
     const changeBool = this.props.changeBool;
+    const resetCards = this.props.resetCards;
     return(
       <div 
         className={
-          isActive ? this.props.cardClass : "card"
+          this.props.cardClass
         }
         onClick={() => {
           if (this.state.isClicked === false) {
@@ -44,6 +46,7 @@ class Card extends Component {
             handleToggle();
             numberClicks();
             changeBool();
+            resetCards();
           } 
         }} 
         style={{backgroundColor: this.props.cardColor}}
