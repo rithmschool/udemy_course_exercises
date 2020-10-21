@@ -6,7 +6,6 @@ class Card extends Component {
     cardColor: 'grey',
     numberClicks(){},
   }
-  //try creating an array with colors, and assigning from there? 
   constructor(props){
     super(props);
     this.state = {
@@ -34,19 +33,9 @@ class Card extends Component {
     const boolClicked = this.boolClicked;
     return(
       <div 
-      //create a function in className to be called on parent
-        /*
-        className={
-          isActive ? "card card-hidden": "card"
-        }
-        */
-
         className={
           isActive ? this.props.cardClass : "card"
-          //need to activate hide in this child component, when the cardsClicked in parent is 2. 
-          //create a function in onClick, to check if cardsClicked=2.
         }
-
         onClick={() => {
           if (this.state.isClicked === false) {
             boolClicked();
