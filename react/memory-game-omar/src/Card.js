@@ -48,7 +48,6 @@ class Card extends Component {
         }
 
         onClick={() => {
-          console.log(this.state.totalClicks);
           if (this.state.isClicked === false) {
             boolClicked();
             handleToggle();
