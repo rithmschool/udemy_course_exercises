@@ -68,6 +68,9 @@ class App extends Component {
             key={i} 
             cardColor={this.props.colors[i]} 
             numberClicks={clickCounter}
+            changeBool={() => {
+              this.setState({[card]: false})
+            }}
           />
         )
       } else {

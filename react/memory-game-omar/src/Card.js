@@ -5,6 +5,7 @@ class Card extends Component {
   static defaultProps ={
     cardColor: 'grey',
     numberClicks(){},
+    changeBool(){}
   }
   constructor(props){
     super(props);
@@ -31,6 +32,7 @@ class Card extends Component {
     const handleToggle = this.handleToggle;
     const numberClicks = this.props.numberClicks;
     const boolClicked = this.boolClicked;
+    const changeBool = this.props.changeBool;
     return(
       <div 
         className={
@@ -41,7 +43,8 @@ class Card extends Component {
             boolClicked();
             handleToggle();
             numberClicks();
-          }
+            changeBool();
+          } 
         }} 
         style={{backgroundColor: this.props.cardColor}}
       />
