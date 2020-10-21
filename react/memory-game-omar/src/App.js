@@ -85,10 +85,12 @@ class App extends Component {
             resetCards={()=> {
               console.log(this.state.cardsClicked);
               if (this.state.cardsClicked === 2) {
-                for (let i=0; i<this.props.colors.length; i++) {
-                  const card = `card${i}`;
-                  this.setState({[card]: true});
-                }
+                setTimeout(() => {
+                  for (let i=0; i<this.props.colors.length; i++) {
+                    const card = `card${i}`;
+                    this.setState({[card]: true});
+                  }
+                }, 1000)
               }
             }}
           />

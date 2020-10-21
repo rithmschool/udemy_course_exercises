@@ -8,12 +8,6 @@ class Card extends Component {
     changeBool(){},
     resetCards(){}
   }
-  constructor(props){
-    super(props);
-    this.state = {
-      totalClicks: 0
-    };
-  }
   render() {
     const numberClicks = this.props.numberClicks;
     const changeBool = this.props.changeBool;
