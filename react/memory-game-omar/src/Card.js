@@ -11,17 +11,10 @@ class Card extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isActive: true,
       totalClicks: 0
     };
-    this.handleToggle = this.handleToggle.bind(this);
   }
-  handleToggle () {
-    this.setState({isActive: !this.state.isActive});
-  };
   render() {
-    const isActive = this.state.isActive;
-    const handleToggle = this.handleToggle;
     const numberClicks = this.props.numberClicks;
     const changeBool = this.props.changeBool;
     const resetCards = this.props.resetCards;
@@ -31,7 +24,6 @@ class Card extends Component {
           this.props.cardClass
         }
         onClick={() => {
-            handleToggle();
             numberClicks();
             changeBool();
             resetCards();
