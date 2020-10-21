@@ -44,21 +44,32 @@ class App extends Component {
       card13: true
     }
     this.clickCounter = this.clickCounter.bind(this);
+    this.resetCards = this.resetCards.bind(this);
   }
   clickCounter() {
     if (this.state.cardsClicked === 2) {
-      this.setState({cardsClicked: 1},
-      () => {console.log(this.state.cardsClicked)});  
+      this.setState({cardsClicked: 1});  
     } else if (this.state.cardsClicked < 2) {
       this.setState({
         cardsClicked: this.state.cardsClicked + 1
-      }, () => {console.log(this.state.cardsClicked)})
+      })
+    }
+  }
+  resetCards() {
+    console.log(this.state.cardsClicked);
+    if (this.state.cardsClicked === 2) {
+      console.log('for')
+      for (let i=0; i<this.props.colors.length; i++) {
+        const card = `card${i}`;
+        this.setState({[card]:true});
+      }
     }
   }
   spawnCards () {
     const NUM_CARDS = 14;
     const clickCounter = this.clickCounter;
     let CardsArr = [];
+    const resetCards = this.resetCards;
     for (let i = 0; i < NUM_CARDS; i++) {
       const card = `card${i}`;
       if (this.state[card]) {
@@ -69,6 +80,7 @@ class App extends Component {
             cardColor={this.props.colors[i]} 
             numberClicks={clickCounter}
             changeBool={() => {
+              resetCards();
               this.setState({[card]: false})
             }}
           />
