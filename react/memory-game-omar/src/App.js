@@ -25,7 +25,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      cardsClicked: 0,
+      cardsClicked: 1,
       cardClassHidden: "card card-hidden",
       cardClassShown: "card",
       card0: true,
