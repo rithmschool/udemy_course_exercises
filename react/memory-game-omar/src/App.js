@@ -26,7 +26,21 @@ class App extends Component {
     super(props);
     this.state = { 
       cardsClicked: 0,
-      cardClass: "card card-hidden"
+      cardClassHidden: "card card-hidden",
+      card1: true,
+      card2: true,
+      card3: true,
+      card4: true,
+      card5: true,
+      card6: true,
+      card7: true,
+      card8: true,
+      card9: true,
+      card10: true,
+      card11: true,
+      card12: true,
+      card13: true,
+      card14: true
     }
     this.clickCounter = this.clickCounter.bind(this);
   }
@@ -47,7 +61,7 @@ class App extends Component {
     for (let i = 0; i < NUM_CARDS; i++) {
       CardsArr.push(
         <Card 
-          cardClass={this.state.cardClass}
+          cardClass={this.state.cardClassHidden}
           key={i} 
           cardColor={this.props.colors[i]} 
           numberClicks={clickCounter}
