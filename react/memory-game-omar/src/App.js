@@ -69,7 +69,6 @@ class App extends Component {
     const NUM_CARDS = 14;
     const clickCounter = this.clickCounter;
     let CardsArr = [];
-    const resetCards = this.resetCards;
     for (let i = 0; i < NUM_CARDS; i++) {
       const card = `card${i}`;
       if (this.state[card]) {
