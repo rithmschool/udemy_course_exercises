@@ -12,27 +12,17 @@ class Card extends Component {
     super(props);
     this.state = {
       isActive: true,
-      isClicked: false,
       totalClicks: 0
     };
     this.handleToggle = this.handleToggle.bind(this);
-    this.boolClicked = this.boolClicked.bind(this);
   }
   handleToggle () {
     this.setState({isActive: !this.state.isActive});
   };
-  boolClicked() {
-    if (this.state.isClicked === false) {
-      this.setState({isClicked: true})
-    } else {
-      this.setState({isClicked: false})   
-    }
-  }
   render() {
     const isActive = this.state.isActive;
     const handleToggle = this.handleToggle;
     const numberClicks = this.props.numberClicks;
-    const boolClicked = this.boolClicked;
     const changeBool = this.props.changeBool;
     const resetCards = this.props.resetCards;
     return(
@@ -41,13 +31,10 @@ class Card extends Component {
           this.props.cardClass
         }
         onClick={() => {
-          if (this.state.isClicked === false) {
-            boolClicked();
             handleToggle();
             numberClicks();
             changeBool();
             resetCards();
-          } 
         }} 
         style={{backgroundColor: this.props.cardColor}}
       />

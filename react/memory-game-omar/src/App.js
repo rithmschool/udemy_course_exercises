@@ -87,7 +87,7 @@ class App extends Component {
               if (this.state.cardsClicked === 2) {
                 for (let i=0; i<this.props.colors.length; i++) {
                   const card = `card${i}`;
-                  this.setState({[card]: true}, ()=>{console.log(this.state)});
+                  this.setState({[card]: true});
                 }
               }
             }}
