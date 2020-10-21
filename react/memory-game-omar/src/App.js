@@ -38,9 +38,6 @@ class App extends Component {
           cardClass={this.state.cardClass}
           key={i} 
           cardColor={this.props.colors[i]} 
-          changeColor={() => {
-            this.setState({});
-          }}
           numberClicks={() => {
             if (this.state.cardsClicked === 2) {
               this.setState({cardsClicked: 1},
