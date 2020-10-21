@@ -3,33 +3,62 @@ import './App.css';
 
 const NUM_BOXES = 32; 
 
+//create stateless functional component for boxes 
+const Box = ({color}) => {
+  const style = {
+    backgroundColor: color,
+    height: '180px',
+    width: '180px',
+    display: 'inline-block'
+  }
+  return <div style={style}></div>
+}
+
+
 class App extends Component {
-  
   constructor(props) {
     super(props);
-    //create 32 strings 
-    const boxes = Array(NUM_BOXES).fill().map(this.getRandomColor)
+    //create a variable boxColors that has 32 different colors 
+    //draw 32 random colors from allColors
+    
+    //create an empty array with NUM_BOXES length
+    const boxColors = Array(NUM_BOXES).fill().map(this.getRandomColor, this);
+    this.state = {boxColors};
+    setInterval(() => {
+      //create a new boxColors array, and change one of the colors
+      const boxColors = this.state.boxColors.slice();
+      console.log(boxColors);
+      //pick one random color from allColors 
+      const randBoxColIndx = Math.floor(
+        Math.random()*boxColors.length
+      );
+      boxColors.splice(randBoxColIndx, 1, this.getRandomColor())
+      this.setState(
+        {boxColors}
+      );
+    }, 300);
   }
-  
-  //create a method that gets a random color from allColors 
-  getRandomColor() {  
-    //create a variable for a random number of allColors index length.
-    const randIndex = Math.floor(Math.random()*this.props.allColors.length);
-    //pull a random color from this.props.allColors
-    const randColor = this.props.allColors[randIndex];
-    return randColor; 
+
+  getRandomColor() {
+    const randAllColIndex = Math.floor(
+      Math.random()*this.props.allColors.length
+    );
+    const randomAllColor = this.props.allColors[randAllColIndex]
+    return randomAllColor;
   }
 
   render() {
-
-    return (
+    const boxes = this.state.boxColors.map((color, index) => (
+      <Box key={index} color={color} />
+    )); 
+    console.log(boxes);
+    return(
       <div className="App">
-        Render boxes here
+        {boxes}
       </div>
-    );
+    )
   }
 }
-
 
 App.defaultProps = {
   allColors: ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond",
@@ -55,3 +84,8 @@ App.defaultProps = {
 };
 
 export default App;
+
+
+
+
+

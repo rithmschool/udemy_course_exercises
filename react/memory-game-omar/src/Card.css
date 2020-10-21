@@ -1,0 +1,11 @@
+.card {
+  border: 5px solid grey;
+  border-radius: 10px;
+  height: 140px; 
+  margin-right: 10px;
+  display: inline-block;
+  width: 140px;
+}
+.card-hidden {
+  background-color: darkgray !important;
+}
