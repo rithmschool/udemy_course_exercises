@@ -40,8 +40,6 @@ class App extends Component {
       card11: true,
       card12: true,
       card13: true,
-      cardA: -1,
-      cardB: -1
     }
     this.clickCounter = this.clickCounter.bind(this);
     this.resetCards = this.resetCards.bind(this);
@@ -63,8 +61,6 @@ class App extends Component {
         let chosenColorsArr = [];
         let chosenColorsNums= [];
         let chosenColors = {};
-        let card1;
-        let card2;
         for (let i=0; i<this.props.colors.length; i++){
           const card = `card${i}`;
           if (this.state[card] === false) {
