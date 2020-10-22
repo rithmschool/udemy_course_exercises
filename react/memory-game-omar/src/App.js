@@ -26,8 +26,6 @@ class App extends Component {
     super(props);
     this.state = { 
       cardsClicked: 1,
-      cardClassHidden: "card card-hidden",
-      cardClassShown: "card",
       card0: true,
       card1: true,
       card2: true,
@@ -83,7 +81,7 @@ class App extends Component {
           if (chosenColorsArr[0] === chosenColorsArr[1]){
             const card1 = `card${chosenColorsNums[0]}`;
             const card2 = `card${chosenColorsNums[1]}`;
-            this.setState({[card1]: -1, [card2]: -1}, ()=>{console.log(this.state)})
+            this.setState({[card1]: -1, [card2]: -1})
             //if the colors match, set their boolean to -1.
           }
 
@@ -93,8 +91,8 @@ class App extends Component {
             console.log(`changing ${card} to 'true'`)
             this.setState({[card]: true});
           }
-
         }
+        console.log(this.state);
       }, 1000)
     }
   }
@@ -108,7 +106,7 @@ class App extends Component {
       if (this.state[card]) {
         CardsArr.push(
           <Card 
-            cardClass={this.state.cardClassHidden}
+            cardClass={"card card-hidden"}
             key={i} 
             listId={i}
             cardColor={this.props.colors[i]} 
@@ -124,16 +122,16 @@ class App extends Component {
             }}
           />
         )
-      } else if (this.state[card] === false || this.state[card] === -1){
+      } else {
         CardsArr.push(
           <Card 
-            cardClass={this.state.cardClassShown}
+            cardClass={"card"}
             key={i} 
             cardColor={this.props.colors[i]} 
             numberClicks={clickCounter}
           />
         )
-      }
+      } 
     }
     return(CardsArr);
   }
