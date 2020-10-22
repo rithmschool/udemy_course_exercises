@@ -41,7 +41,9 @@ class App extends Component {
       card10: true,
       card11: true,
       card12: true,
-      card13: true
+      card13: true,
+      cardA: -1,
+      cardB: -1
     }
     this.clickCounter = this.clickCounter.bind(this);
     this.resetCards = this.resetCards.bind(this);
@@ -85,9 +87,31 @@ class App extends Component {
               console.log(this.state.cardsClicked);
               if (this.state.cardsClicked === 2) {
                 setTimeout(() => {
+                  let card1, card2;
+                  for (let i=0; i<this.props.colors.length; i++){
+                    const card = `card${i}`;
+                    if (this.state[card] === false) {
+                      card1 = i;
+                      console.log(card1);
+                    }
+                  }
+                  for (let i=0; i<this.props.colors.length; i++){
+                    const card = `card${i}`;
+                    if (this.state[card] === false && this.state[card] !== card1) {
+                      card2 = i;
+                      console.log(card2);
+                    }
+                  }
                   for (let i=0; i<this.props.colors.length; i++) {
+
+                    //check if selected cards match. If they do, don't reset them. 
+                    /* if activecard1.color = activecard2.color {
+                      return
+                    } */
+
                     const card = `card${i}`;
                     this.setState({[card]: true});
+
                   }
                 }, 1000)
               }
