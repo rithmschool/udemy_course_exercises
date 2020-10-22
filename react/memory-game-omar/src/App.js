@@ -46,7 +46,6 @@ class App extends Component {
       cardB: -1
     }
     this.clickCounter = this.clickCounter.bind(this);
-    this.resetCards = this.resetCards.bind(this);
   }
   clickCounter() {
     if (this.state.cardsClicked === 2) {
@@ -55,16 +54,6 @@ class App extends Component {
       this.setState({
         cardsClicked: this.state.cardsClicked + 1
       })
-    }
-  }
-  resetCards() {
-    console.log(this.state.cardsClicked);
-    if (this.state.cardsClicked === 2) {
-      for (let i=0; i<this.props.colors.length; i++) {
-        const card = `card${i}`;
-        console.log(card);
-        this.setState({[card]: true});
-      }
     }
   }
   spawnCards () {
@@ -78,39 +67,52 @@ class App extends Component {
           <Card 
             cardClass={this.state.cardClassHidden}
             key={i} 
+            listId={i}
             cardColor={this.props.colors[i]} 
             numberClicks={clickCounter}
             changeBool={() => {
+              if (this.state.cardsClicked === 1) {
+                console.log(this.state.cardA);
+                console.log(this.props);
+                this.setState({cardA: this.props.key}, ()=>{console.log(this.state.cardA)})
+              }
               this.setState({[card]: false});
             }}
             resetCards={()=> {
               console.log(this.state.cardsClicked);
               if (this.state.cardsClicked === 2) {
                 setTimeout(() => {
-                  let card1, card2;
+                  //STOP HERE: Cards now stay when they match colors, but if you click more, or even match another colored pair, all turns grey. It seems that maybe card1 and card2 are holding values when they shouldnt be. Maybe we can add state to keep track of cards that have been matched. 
+                  let chosenColorsArr = [];
+                  let chosenColorsNums= [];
+                  let chosenColors = {};
+                  let card1;
+                  let card2;
                   for (let i=0; i<this.props.colors.length; i++){
                     const card = `card${i}`;
                     if (this.state[card] === false) {
-                      card1 = i;
-                      console.log(card1);
+                      chosenColors[card] = i;
+                      chosenColorsArr.push(this.props.colors[i])
+                      chosenColorsNums.push(i);
                     }
                   }
-                  for (let i=0; i<this.props.colors.length; i++){
-                    const card = `card${i}`;
-                    if (this.state[card] === false && this.state[card] !== card1) {
-                      card2 = i;
-                      console.log(card2);
-                    }
-                  }
+                  console.log(chosenColors);
+                  console.log(chosenColorsArr);
+                  console.log(chosenColorsNums);
                   for (let i=0; i<this.props.colors.length; i++) {
 
-                    //check if selected cards match. If they do, don't reset them. 
-                    /* if activecard1.color = activecard2.color {
-                      return
-                    } */
+                    if (chosenColorsArr[0] === chosenColorsArr[1]){
+                      const card1 = `card${chosenColorsNums[0]}`;
+                      const card2 = `card${chosenColorsNums[1]}`;
+                      this.setState({[card1]: null, [card2]: null}, ()=>{console.log(this.state)})
+                      //if the colors match, set their boolean to null.
+                    }
 
                     const card = `card${i}`;
-                    this.setState({[card]: true});
+                    if (this.props[card] !== null) {
+                      this.setState({[card]: true});
+
+                    }
 
                   }
                 }, 1000)
