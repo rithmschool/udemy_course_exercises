@@ -104,7 +104,6 @@ class App extends Component {
           <Card 
             cardClass={"card card-hidden"}
             key={i} 
-            listId={i}
             cardColor={this.props.colors[i]} 
             numberClicks={clickCounter}
             changeBool={() => {
