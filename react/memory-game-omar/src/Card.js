@@ -3,7 +3,6 @@ import './Card.css';
 
 class Card extends Component {
   static defaultProps ={
-    cardColor: 'grey',
     numberClicks(){},
     changeBool(){},
     resetCards(){}
