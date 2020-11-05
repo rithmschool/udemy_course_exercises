@@ -54,10 +54,8 @@ class App extends Component {
     }
   }
   resetCards(){
-    console.log(this.state.cardsClicked);
     if (this.state.cardsClicked === 2) {
       setTimeout(() => {
-        //STOP HERE: Cards now stay when they match colors, but if you click more, or even match another colored pair, all turns grey. It seems that maybe card1 and card2 are holding values when they shouldnt be. Maybe we can add state to keep track of cards that have been matched. 
         let chosenColorsArr = [];
         let chosenColorsNums= [];
         let chosenColors = {};
@@ -74,13 +72,15 @@ class App extends Component {
         console.log(chosenColorsNums);
         for (let i=0; i<this.props.colors.length; i++) {
 
+          //if colors match, set boolean to -1
           if (chosenColorsArr[0] === chosenColorsArr[1]){
             const card1 = `card${chosenColorsNums[0]}`;
             const card2 = `card${chosenColorsNums[1]}`;
             this.setState({[card1]: -1, [card2]: -1})
-            //if the colors match, set their boolean to -1.
           }
 
+          //hide card again
+          //set all card states equal to true.
           const card = `card${i}`;
           console.log(`State of ${card} is ${this.state[card]}`)
           if (this.state[card] !== -1 && this.state[card] !== true) {
@@ -97,9 +97,11 @@ class App extends Component {
     const clickCounter = this.clickCounter;
     const resetCards = this.resetCards;
     let CardsArr = [];
+    //Create 14 cards:
     for (let i = 0; i < NUM_CARDS; i++) {
       const card = `card${i}`;
-      if (this.state[card]) {
+      //if the card${i} in state has a value of 'true', load the card, but make it hidden 
+      if (this.state[card] === true) {
         CardsArr.push(
           <Card 
             cardClass={"card card-hidden"}
@@ -117,6 +119,8 @@ class App extends Component {
             }}
           />
         )
+      //if the card${i} in state has a value of 'false', or -1, load the card, but make it shown
+      //where is the statement that reloads all the cards to true? 
       } else {
         CardsArr.push(
           <Card 
