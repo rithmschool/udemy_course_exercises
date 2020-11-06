@@ -24,15 +24,6 @@ function CountryAnswer(props) {
             <span><span className="text-danger">Wrong. </span>Correct answer: <strong>{correctName}</strong></span>        
           }
         </div>
-        <button 
-          className="next btn btn-primary"
-          onClick={() => {
-            console.log(optionsFunc)
-            // optionsFunc()
-          }}
-        >
-          NEXT
-        </button>
       </div>
     )
   }

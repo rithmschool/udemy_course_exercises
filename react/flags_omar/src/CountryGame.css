@@ -7,3 +7,8 @@ main {
   border: 1px solid black;
   border-radius: 6px;
 }
+
+.next {
+  display: inline-block;
+  margin-right: 20px;
+}

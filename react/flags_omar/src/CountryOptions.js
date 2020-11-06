@@ -51,14 +51,13 @@ class CountryOptions extends Component {
   render(){
     const {selected, wasCorrect} = this.state;
     const {correctAns, correctName, optionsFunc} = this.props;
-    console.log('optionsFunc: ',optionsFunc);
     //get options from CountryGame 
     //pass options into CountryOptions as prop
     //create a function to return HTML for options
     const optionsHtml = this.optionsHtml;
     const onSubmit = this.onSubmit;
     return(
-      <div>
+      <div className='country-options'>
         <form>
             {optionsHtml()}
         </form>

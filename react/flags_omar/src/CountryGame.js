@@ -14,6 +14,7 @@ class CountryGame extends Component {
       correctName: undefined,
       loading: <div>Loading...</div>
     }
+    this._options = this._options.bind(this);
   } 
   componentDidMount(){
     fetch('https://restcountries.eu/rest/v2/all')
@@ -26,7 +27,10 @@ class CountryGame extends Component {
     })
   }
   _options(countries){
+    console.log('options caalled')
+    console.log(countries[0])
     const correctAns = Math.floor(Math.random()*countries.length);
+    console.log('correctAns: ',correctAns)
     this.setState({correctAns});
     let randCountry;
     const options = [correctAns];
@@ -47,8 +51,8 @@ class CountryGame extends Component {
     return shuffle(options);
   }
   render(){
-    const {flag, loading, correctAns} = this.state;
-    console.log('this.options: ', this._options)
+    const {flag, loading, correctAns, countries} = this.state;
+    const _options = this._options;
     //add four options to render. 
     //use a new component to add options to render. 
     return(
@@ -60,8 +64,16 @@ class CountryGame extends Component {
           countries = {this.state.countries}
           correctAns = {this.state.correctAns}
           correctName = {this.state.correctName}
-          optionsFunc = {this._options}
+          optionsFunc = {_options}
         />
+        <button 
+          className="next btn btn-primary"
+          onClick={() => {
+            const options = _options(this.state.countries);
+            const flag = countries[this.state.correctAns].flag;
+            this.setState({options, flag});
+          }}
+        >NEXT</button>
         {/* Show flag image */}
         <img className='flag' src={flag} style={correctAns === 156 ? {border:'0px solid black'} : {border:'1px solid black'}}/>
       </main>
