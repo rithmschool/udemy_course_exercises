@@ -48,6 +48,7 @@ class CountryOptions extends Component {
     let optionsArr = [];
     const {options, countries} = this.props;
     const onSelect = this.onSelect;
+    const {wasCorrect} = this.state;
     //get countries from CountryGame
     for (let i = 0; i < options.length; i++) {
       optionsArr.push(
@@ -58,6 +59,7 @@ class CountryOptions extends Component {
             id={options[i]} 
             value={options[i]} 
             onClick={onSelect}
+            disabled={wasCorrect === null ? false : true}
           />
           {countries[options[i]].name}
         </label>

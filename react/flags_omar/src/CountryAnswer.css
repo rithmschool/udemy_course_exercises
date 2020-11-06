@@ -1,10 +1,13 @@
 .answer-text {
-  float: left;
+  display: inline-block;
+  margin-right: 20px;
 }
 .next {
-  float: right;
+  display: inline-block;
+  margin-right: 20px;
+  
 }
-.answer-div {
-  height: 40px;
-  width: 400px;
+.country-answer {
+  display: inline-block;
+  margin: 15px 0;
 }

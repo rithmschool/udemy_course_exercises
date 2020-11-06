@@ -3,6 +3,6 @@ label {
   display: inline-block;
 }
 .submit {
-  display: block;
-  margin: 15px 0;
+  display: inline-block;
+  margin: 15px 20px 15px 0;
 }

@@ -29,7 +29,7 @@ function CountryAnswer(props) {
     )
   }
   return(
-    <div>
+    <div className="country-answer">
       {answer}
     </div>
   );
