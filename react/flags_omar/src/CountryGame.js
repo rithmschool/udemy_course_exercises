@@ -3,25 +3,15 @@ import CountryOptions from './CountryOptions';
 import {shuffle} from './Shuffle';
 import './CountryGame.css'
 
-
-
-//STOP HERE: next step is to create submit button, and return message when submit is pressed
-
-
-
 class CountryGame extends Component {
-//Get country data from API
-//Show 4 options
-//Show flag image 
-//show submit button 
-//when you're done with this tutorial, you'll have your first React project to put on your site :)
   constructor(props){
     super(props);
     this.state = {
       countries: [],
       options: [],
       correctAns: undefined,
-      flag: ''
+      flag: '',
+      correctName: undefined
     }
   } 
   componentDidMount(){
@@ -30,8 +20,8 @@ class CountryGame extends Component {
     .then(countries => {
       const options = this._options(countries);
       const flag = countries[this.state.correctAns].flag;
-      this.setState({countries, options, flag})
-      console.log(this.state.flag)
+      const correctName = countries[this.state.correctAns].name;
+      this.setState({countries, options, flag, correctName})
     })
   }
   _options(countries){
@@ -65,6 +55,8 @@ class CountryGame extends Component {
         <CountryOptions 
           options = {this.state.options}
           countries = {this.state.countries}
+          correctAns = {this.state.correctAns}
+          correctName = {this.state.correctName}
         />
         {/* Show flag image */}
         <img className='flag' src={flag} />

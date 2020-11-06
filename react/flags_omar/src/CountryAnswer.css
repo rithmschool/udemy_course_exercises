@@ -1,0 +1,10 @@
+.answer-text {
+  float: left;
+}
+.next {
+  float: right;
+}
+.answer-div {
+  height: 40px;
+  width: 400px;
+}
