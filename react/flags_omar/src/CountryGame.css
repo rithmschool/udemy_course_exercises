@@ -4,4 +4,6 @@ main {
 .flag {
   width: 500px;
   display: block;
+  border: 1px solid black;
+  border-radius: 6px;
 }

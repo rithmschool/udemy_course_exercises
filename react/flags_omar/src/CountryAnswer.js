@@ -3,28 +3,36 @@ import './CountryAnswer.css';
 
 //Display 'Correct' or 'Incorrect'
 function CountryAnswer(props) {
-  const {wasCorrect, correctName} = props;
+
+  const {wasCorrect, correctName, optionsFunc} = props;
   // const correctName;
-  let answer;
+  let answer; 
   console.log(wasCorrect)
   if (wasCorrect === null) {
-    answer = (
+    answer=(
       <div className="answer-div">
         <br></br>
       </div>
     );
-  } else if (wasCorrect === false) {
+  } else {
     answer = (
       <div className="answer-div">
-        <div className="answer-text">Wrong. Correct answer: <strong>{correctName}</strong></div>
-        <button className="next">NEXT</button>
-      </div>
-    )
-  } else if (wasCorrect === true) {
-    answer = (
-      <div className="answer-div">
-        <div className="answer-text">Correct! <strong>{correctName}</strong></div>
-        <button className="next">NEXT</button>
+        <div className="answer-text">
+          {wasCorrect ? 
+            <span><span className="text-success">Correct! </span><strong>{correctName}</strong></span> : 
+
+            <span><span className="text-danger">Wrong. </span>Correct answer: <strong>{correctName}</strong></span>        
+          }
+        </div>
+        <button 
+          className="next btn btn-primary"
+          onClick={() => {
+            console.log(optionsFunc)
+            // optionsFunc()
+          }}
+        >
+          NEXT
+        </button>
       </div>
     )
   }

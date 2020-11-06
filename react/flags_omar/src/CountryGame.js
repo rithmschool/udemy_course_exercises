@@ -11,7 +11,8 @@ class CountryGame extends Component {
       options: [],
       correctAns: undefined,
       flag: '',
-      correctName: undefined
+      correctName: undefined,
+      loading: <div>Loading...</div>
     }
   } 
   componentDidMount(){
@@ -21,7 +22,7 @@ class CountryGame extends Component {
       const options = this._options(countries);
       const flag = countries[this.state.correctAns].flag;
       const correctName = countries[this.state.correctAns].name;
-      this.setState({countries, options, flag, correctName})
+      this.setState({countries, options, flag, correctName, loading:null})
     })
   }
   _options(countries){
@@ -46,20 +47,23 @@ class CountryGame extends Component {
     return shuffle(options);
   }
   render(){
-    const {flag} = this.state;
+    const {flag, loading, correctAns} = this.state;
+    console.log('this.options: ', this._options)
     //add four options to render. 
     //use a new component to add options to render. 
     return(
       <main>
         {/* show 4 options */}
+        <div>{loading}</div>
         <CountryOptions 
           options = {this.state.options}
           countries = {this.state.countries}
           correctAns = {this.state.correctAns}
           correctName = {this.state.correctName}
+          optionsFunc = {this._options}
         />
         {/* Show flag image */}
-        <img className='flag' src={flag} />
+        <img className='flag' src={flag} style={correctAns === 156 ? {border:'0px solid black'} : {border:'1px solid black'}}/>
       </main>
     );
   }

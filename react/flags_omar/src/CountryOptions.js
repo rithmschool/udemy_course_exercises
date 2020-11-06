@@ -1,26 +1,7 @@
 import React, {Component} from 'react';
 import CountryAnswer from './CountryAnswer';
 import './CountryOptions.css';
-
-//create a state to show if:
-// 1. No answer has been selected
-// 2. Answer has been selected, but not submitted
-// 3. Answer has been submitted
-
-
-//why do we want three different states?
-//we want to show a submit button that you can't press in state 1
-//we want to show a submit button that can be proessed in state 2
-//we want to show a message in state 3
-
-//where are these states going to be used?
-//state 1 and 2 are going to be used in CountryOptions component, to show the submit button
-//state 3 is going to be used in CountryAnswer, to show answer. 
-
-//three states:
-//no answer
-//correct answer
-//wrong answer 
+import Button from 'react-bootstrap/Button';
 
 class CountryOptions extends Component {
   constructor(props){
@@ -69,6 +50,8 @@ class CountryOptions extends Component {
   }
   render(){
     const {selected, wasCorrect} = this.state;
+    const {correctAns, correctName, optionsFunc} = this.props;
+    console.log('optionsFunc: ',optionsFunc);
     //get options from CountryGame 
     //pass options into CountryOptions as prop
     //create a function to return HTML for options
@@ -81,9 +64,10 @@ class CountryOptions extends Component {
         </form>
         {/* remove submit after submit */}
         <button 
-          className='submit'
+          className='submit btn btn-success'
           style={{visibility: selected ? 'visible' : 'hidden'}}
           onClick={onSubmit}
+          disabled={wasCorrect === null?false:true}
         >
           Submit
         </button>
@@ -91,8 +75,9 @@ class CountryOptions extends Component {
         {/* Check if this.state.selected === this.props.correctAns */}
         <CountryAnswer 
           wasCorrect={wasCorrect} 
-          correctAns={this.props.correctAns}
-          correctName={this.props.correctName}
+          correctAns={correctAns}
+          correctName={correctName}
+          optionsFunc={optionsFunc}
         />
         {/* Return Answer based on wasCorrect.
           if wasCorrect is true, return 'correct'
