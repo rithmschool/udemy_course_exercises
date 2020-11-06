@@ -20,9 +20,9 @@ class CountryOptions extends Component {
   onSubmit(e){
     if (this.state.wasCorrect !== null) {return};
     if (this.state.selected === this.props.correctAns) {
-      this.setState({wasCorrect: true}, () => {console.log(this.state.wasCorrect)})
+      this.setState({wasCorrect: true})
     } else {
-      this.setState({wasCorrect: false}, () => {console.log(this.state.wasCorrect)})
+      this.setState({wasCorrect: false})
     }
   }
   optionsHtml(){

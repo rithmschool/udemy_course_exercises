@@ -15,25 +15,23 @@ class CountryGame extends Component {
       loading: <div>Loading...</div>
     }
     this._options = this._options.bind(this);
+    this.onNext = this.onNext.bind(this);
   } 
   componentDidMount(){
     fetch('https://restcountries.eu/rest/v2/all')
     .then(resp => resp.json())
     .then(countries => {
-      const options = this._options(countries);
-      const flag = countries[this.state.correctAns].flag;
-      const correctName = countries[this.state.correctAns].name;
+      const correctAns = Math.floor(Math.random()*countries.length);
+      const options = this._options(countries, correctAns);
+      const flag = countries[correctAns].flag;
+      const correctName = countries[correctAns].name;
       this.setState({countries, options, flag, correctName, loading:null})
     })
   }
-  _options(countries){
-    console.log('options caalled')
-    console.log(countries[0])
-    const correctAns = Math.floor(Math.random()*countries.length);
-    console.log('correctAns: ',correctAns)
-    this.setState({correctAns});
+  _options(countries, correctAns){
     let randCountry;
     const options = [correctAns];
+    //STOP HERE: are we somehow pulling state info from _options??? now says flag is not defined.
     let _loopOptions = () => { //check if randCountry already in options:
       for (let i = 0; i < options.length; i++){ //loop through options
         //check if an option is the same as randCountry
@@ -50,9 +48,22 @@ class CountryGame extends Component {
     }
     return shuffle(options);
   }
+  onNext(countries){
+    //why is countries undefined?
+    
+    const correctAns = Math.floor(Math.random()*countries.length);
+    const {correctAns} = this.state;
+    const options = this._options(countries, correctAns);
+    const flag = countries[correctAns].flag;
+    const correctName = countries[correctAns].name;
+    this.setState({options, flag, correctName, loading:null, correctAns})
+  }
   render(){
+    console.log('state', this.state)
+    //maybe state does not load until end of document? 
     const {flag, loading, correctAns, countries} = this.state;
     const _options = this._options;
+    const onNext = this.onNext;
     //add four options to render. 
     //use a new component to add options to render. 
     return(
@@ -67,15 +78,13 @@ class CountryGame extends Component {
           optionsFunc = {_options}
         />
         <button 
+        // make options and flag correspond on next
+        //make it so you dont need to press next twice
           className="next btn btn-primary"
-          onClick={() => {
-            const options = _options(this.state.countries);
-            const flag = countries[this.state.correctAns].flag;
-            this.setState({options, flag});
-          }}
+          onClick={() => {onNext(countries)}}
         >NEXT</button>
         {/* Show flag image */}
-        <img className='flag' src={flag} style={correctAns === 156 ? {border:'0px solid black'} : {border:'1px solid black'}}/>
+        <img className='flag' alt='flag' src={flag} style={correctAns === 156 ? {border:'0px solid black'} : {border:'1px solid black'}}/>
       </main>
     );
   }

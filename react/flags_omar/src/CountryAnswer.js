@@ -7,7 +7,6 @@ function CountryAnswer(props) {
   const {wasCorrect, correctName, optionsFunc} = props;
   // const correctName;
   let answer; 
-  console.log(wasCorrect)
   if (wasCorrect === null) {
     answer=(
       <div className="answer-div">
