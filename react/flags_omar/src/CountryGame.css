@@ -1,0 +1,14 @@
+main {
+  margin: 60px;
+}
+.flag {
+  width: 500px;
+  display: block;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.next {
+  display: inline-block;
+  margin-right: 20px;
+}

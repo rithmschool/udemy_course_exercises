@@ -3,7 +3,8 @@ import CountryGame from './CountryGame';
 import worldImg from './world.jpg';
 import './App.css';
 
-
+//only header and countrygame in this component. Why not put header into countrygame? 
+//maybe becuase it's just a different peice of the site. 
 class App extends Component {
   render() {
     return (

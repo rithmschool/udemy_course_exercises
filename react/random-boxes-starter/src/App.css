@@ -1,1 +1,6 @@
-
+.box {
+  background-color: white;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}

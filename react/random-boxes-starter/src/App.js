@@ -2,16 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  
   constructor(props) {
     super(props);
-  }
-  
-  render() {
+    this.state = {
+      colors: ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque', 'Black', 'BlanchedAlmond', 'Blue', 'BlueViolet', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse', 'Chocolate', 'Coral', 'CornflowerBlue', 'Cornsilk', 'Crimson', 'Cyan', 'DarkBlue', 'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGrey', 'DarkGreen', 'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'Darkorange', 'DarkOrchid']
+    }
+    setInterval(() => {
+      const randomPropColInd = () => (Math.floor(Math.random()*32))
+      const randomAllColInd = () => (Math.floor(Math.random()*this.props.allColors.length))
+      const randomNewCol = () => (this.props.allColors[randomAllColInd()])
 
+      const colors = this.state.colors.slice();      
+      colors.splice(randomPropColInd(), 1, this.props.allColors[randomAllColInd()])
+      this.setState({
+        colors
+      })
+    }, 100);
+  }
+  render() {
+    const boxes = this.props.allColors.map((color, index) => {
+      return (
+      <div className='box' key={index} style={{backgroundColor: this.state.colors[index]}}></div>);
+    });
     return (
       <div className="App">
-        Render boxes here
+        {boxes}
       </div>
     );
   }

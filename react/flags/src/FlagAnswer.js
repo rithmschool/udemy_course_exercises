@@ -2,6 +2,7 @@ import React from 'react';
 import StyledButton from './StyledButton';
 import './FlagAnswer.css';
 
+//stateless func comp
 const FlagAnswer = ({correct, answer, onNext}) => (
   <div className='flag-answer'>
     {correct ?
