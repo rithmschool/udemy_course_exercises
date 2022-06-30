@@ -19,6 +19,8 @@ function hasOnlyOddNumbers(arr){
 function hasNoDuplicates(arr){
   return arr.every(function(val){
     return arr.indexOf(val) === arr.lastIndexOf(val)
+    /* You can also check for duplicate by using the code below */
+     //return arr[val]++ !== 1;
   })
 }
 
